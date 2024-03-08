@@ -66,4 +66,29 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //Activity-Compose
+    implementation("androidx.activity:activity-compose:1.8.2")
+
+    // ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
+     // Navigation compose
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // Koin
+    implementation("io.insert-koin:koin-androidx-compose:3.4.0")
+
+    //Logging interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.2")
+
+    // Remote Debugger
+    debugImplementation("com.github.zerobranch.android-remote-debugger:debugger:1.1.2")
+    releaseImplementation("com.github.zerobranch.android-remote-debugger:noop:1.1.0")
+
+    // Timber
+    implementation("com.jakewharton.timber:timber:5.0.1")
+
+    // ApolloGraphql
+    implementation("com.apollographql.apollo3:apollo-runtime:3.7.3")
 }
