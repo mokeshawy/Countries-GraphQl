@@ -1,14 +1,14 @@
 package com.countries.graphql.core.di
 
+import com.countries.graphql.core.connectivity.di.connectivityManagerModule
 import org.koin.dsl.module
 
-class AppModule {
 
     val networkModule = module {
 
     }
 
-    val viewModelModule = module {
+    val viewModelsModule = module {
 
     }
 
@@ -19,4 +19,7 @@ class AppModule {
     val useCaseModule = module {
 
     }
-}
+
+    val singletonModule = module {
+        includes(connectivityManagerModule)
+    }

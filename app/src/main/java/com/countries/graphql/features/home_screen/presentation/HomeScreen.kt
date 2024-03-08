@@ -9,8 +9,9 @@ import androidx.compose.ui.Modifier
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(isNetworkAvailable: Boolean?) {
+
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text(text = "Home Screen")
+        Text(text = "Home Screen: $isNetworkAvailable")
     }
 }

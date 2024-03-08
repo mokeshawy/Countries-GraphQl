@@ -7,6 +7,10 @@ android {
     namespace = "com.countries.graphql"
     compileSdk = 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "com.countries.graphql"
         minSdk = 24
@@ -22,6 +26,14 @@ android {
 
     buildTypes {
         release {
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+
+        debug {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -29,6 +41,18 @@ android {
             )
         }
     }
+
+    flavorDimensions += listOf("version")
+    productFlavors {
+        create("staging") {
+            dimension = "version"
+            versionNameSuffix = ".stage"
+        }
+        create("live") {
+            dimension = "version"
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -73,10 +97,14 @@ dependencies {
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
-     // Navigation compose
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.3")
+
+
+    // Navigation compose
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     // Koin
+    implementation("io.insert-koin:koin-android:3.4.0")
     implementation("io.insert-koin:koin-androidx-compose:3.4.0")
 
     //Logging interceptor

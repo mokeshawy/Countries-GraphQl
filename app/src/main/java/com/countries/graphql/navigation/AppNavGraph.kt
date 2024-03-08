@@ -9,7 +9,7 @@ import com.countries.graphql.features.splash_screen.presentation.SplashScreen
 import com.countries.graphql.navigation.route.AppNavGraphRoutes
 
 @Composable
-fun AppNavGraph() {
+fun AppNavGraph(isNetworkAvailable: Boolean?) {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
@@ -27,7 +27,7 @@ fun AppNavGraph() {
 
         //HomeScreen
         composable(AppNavGraphRoutes.HomeScreen.route){
-            HomeScreen()
+            HomeScreen(isNetworkAvailable)
         }
     }
 }
