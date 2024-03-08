@@ -126,4 +126,5 @@ dependencies {
 
     // ApolloGraphql
     implementation("com.apollographql.apollo3:apollo-runtime:3.7.3")
+    implementation("com.apollographql.apollo3:apollo-api:3.7.3")
 }
