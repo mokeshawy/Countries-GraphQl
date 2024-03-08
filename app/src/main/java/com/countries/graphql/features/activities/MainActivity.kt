@@ -1,4 +1,4 @@
-package com.countries.graphql.features.mainactivity
+package com.countries.graphql.features.activities
 
 import android.os.Build
 import android.os.Bundle

@@ -1,6 +1,13 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.apollographql.apollo3").version("3.7.3")
+}
+
+apollo {
+    service("service") {
+        packageName.set("com.countries.graphql")
+    }
 }
 
 android {

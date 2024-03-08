@@ -17,7 +17,7 @@
         android:theme="@style/Theme.CountriesGraphQl"
         tools:targetApi="31">
         <activity
-            android:name=".features.mainactivity.MainActivity"
+            android:name=".features.activities.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.CountriesGraphQl">
             <intent-filter>
