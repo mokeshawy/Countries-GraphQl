@@ -1,4 +1,4 @@
-package com.countries.graphql.features.core.di
+package com.countries.graphql.core.di
 
 import org.koin.dsl.module
 
