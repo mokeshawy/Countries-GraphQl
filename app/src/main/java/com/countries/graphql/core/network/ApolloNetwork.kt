@@ -25,7 +25,7 @@ class ApolloNetwork(context: Context) {
 
 
     private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(provideAuthInterceptor)
+        //.addInterceptor(provideAuthInterceptor)
         .addInterceptor(httpLoggingInterceptor)
         .addInterceptor(NetLoggingInterceptor())
         .build()

@@ -26,8 +26,10 @@ fun AppNavGraph(isNetworkAvailable: Boolean?) {
         }
 
         //HomeScreen
-        composable(AppNavGraphRoutes.HomeScreen.route){
-            HomeScreen(isNetworkAvailable)
+        composable(AppNavGraphRoutes.HomeScreen.route) {
+            HomeScreen(isNetworkAvailable) {
+
+            }
         }
     }
 }
