@@ -13,7 +13,10 @@ import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
-fun HomeScreen(isNetworkAvailable: Boolean?, onItemClicked: (String) -> Unit) {
+fun HomeScreen(
+    isNetworkAvailable: Boolean?,
+    onItemClicked: (String) -> Unit
+) {
 
     val viewModel: HomeViewModel = koinViewModel()
     val state = viewModel.countriesResponseState.collectAsState(initial = State.Initial())

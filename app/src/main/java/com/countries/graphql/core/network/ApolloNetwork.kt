@@ -9,6 +9,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import timber.log.Timber
 import zerobranch.androidremotedebugger.logging.NetLoggingInterceptor
+import java.util.concurrent.TimeUnit
 
 class ApolloNetwork(context: Context) {
 
@@ -25,6 +26,8 @@ class ApolloNetwork(context: Context) {
 
 
     private val okHttpClient = OkHttpClient.Builder()
+        .connectTimeout(2, TimeUnit.MINUTES)
+        .readTimeout(2, TimeUnit.MINUTES)
         //.addInterceptor(provideAuthInterceptor)
         .addInterceptor(httpLoggingInterceptor)
         .addInterceptor(NetLoggingInterceptor())

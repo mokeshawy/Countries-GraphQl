@@ -22,11 +22,11 @@ import com.countries.graphql.features.home_screen.domain.model.SimpleCountry
 @Composable
 fun Countries(countries: List<SimpleCountry>, onItemClicked: (String) -> Unit) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(countries) {
+        items(countries) { country ->
             CountryItem(
-                country = it, modifier = Modifier
+                country = country, modifier = Modifier
                     .fillMaxWidth()
-                    .clickable { onItemClicked(it.code) }
+                    .clickable { onItemClicked(country.code) }
                     .padding(16.dp)
             )
         }
@@ -38,10 +38,7 @@ private fun CountryItem(
     country: SimpleCountry,
     modifier: Modifier = Modifier
 ) {
-    Row(
-        modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
-    ) {
+    Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
 
         Text(text = country.emoji, fontSize = 30.sp)
 

@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 import com.countries.graphql.core.connectivity.connectivity_manager.ConnectivityManager
 import com.countries.graphql.navigation.AppNavGraph
 import com.countries.graphql.ui.theme.CountriesGraphQlTheme
@@ -29,9 +30,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val isNetworkAvailable =
-                        connectivityManager.isNetworkConnected.observeAsState().value
-                    AppNavGraph(isNetworkAvailable)
+                    val navController = rememberNavController()
+                    val isNetworkAvailable = connectivityManager.isNetworkConnected.observeAsState()
+                    AppNavGraph(navController, isNetworkAvailable.value)
                 }
             }
         }

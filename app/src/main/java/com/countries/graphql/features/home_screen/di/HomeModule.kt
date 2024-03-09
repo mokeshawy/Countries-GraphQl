@@ -15,10 +15,10 @@ val homeViewModelModule = module {
 }
 
 val homeRepositoryModule = module {
-    factory<CountriesRepository> { CountriesRepositoryImpl(get()) }
-    factory<DetailedCountryRepository> { DetailedCountryRepositoryImpl(get()) }
+    single<CountriesRepository> { CountriesRepositoryImpl(get()) }
+    single<DetailedCountryRepository> { DetailedCountryRepositoryImpl(get()) }
 }
 
 val homeUseCaseModule = module {
-    factory { CountriesUseCase() }
+    single { CountriesUseCase() }
 }
