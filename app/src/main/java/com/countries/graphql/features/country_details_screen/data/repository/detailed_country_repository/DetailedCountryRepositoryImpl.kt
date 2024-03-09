@@ -1,10 +1,10 @@
-package com.countries.graphql.features.home_screen.data.repository.detailed_country_repository
+package com.countries.graphql.features.country_details_screen.data.repository.detailed_country_repository
 
 import com.countries.graphql.CountryQuery
 import com.countries.graphql.core.network.ApolloNetwork
 import com.countries.graphql.core.state.State
-import com.countries.graphql.features.home_screen.data.mappers.toDetailedCountry
-import com.countries.graphql.features.home_screen.domain.repository.detailed_country_repository.DetailedCountryRepository
+import com.countries.graphql.features.country_details_screen.data.mappers.toDetailedCountry
+import com.countries.graphql.features.country_details_screen.domain.repository.detailed_country_repository.DetailedCountryRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

@@ -5,4 +5,6 @@ sealed class AppNavGraphRoutes(val route : String) {
     data object  SplashScreen : AppNavGraphRoutes("SplashScreen")
 
     data object  HomeScreen : AppNavGraphRoutes("HomeScreen")
+
+    data object  DetailedCountryScreen : AppNavGraphRoutes("DetailedCountryScreen")
 }

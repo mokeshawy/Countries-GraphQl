@@ -1,4 +1,4 @@
-package com.countries.graphql.features.home_screen.data.mappers
+package com.countries.graphql.features.country_details_screen.data.mappers
 
 import com.countries.graphql.CountryQuery
 import com.countries.graphql.features.home_screen.domain.model.DetailedCountry
