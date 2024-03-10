@@ -33,7 +33,7 @@ fun Countries(countries: List<SimpleCountry>, onItemClicked: (String) -> Unit) {
     }
 }
 
-@Composable()
+@Composable
 private fun CountryItem(
     country: SimpleCountry,
     modifier: Modifier = Modifier
