@@ -1,8 +1,8 @@
 package com.countries.graphql.features.home_screen.domain.usecase
 
-import com.countries.graphql.core.state.State
+import com.countries.graphql.core.state.network_state.State
 import com.countries.graphql.features.home_screen.domain.model.SimpleCountry
-import com.countries.graphql.features.home_screen.domain.repository.countries_repository.CountriesRepository
+import com.countries.graphql.features.home_screen.domain.repository.CountriesRepository
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.channelFlow
 import org.koin.core.component.KoinComponent

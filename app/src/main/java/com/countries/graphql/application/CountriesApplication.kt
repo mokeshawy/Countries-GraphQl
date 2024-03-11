@@ -2,6 +2,8 @@ package com.countries.graphql.application
 
 import android.app.Application
 import com.countries.graphql.BuildConfig
+import com.countries.graphql.core.di.appModule
+import com.countries.graphql.core.di.dataSourceModule
 import com.countries.graphql.core.di.networkModule
 import com.countries.graphql.core.di.repositoriesModule
 import com.countries.graphql.core.di.singletonModule
@@ -23,8 +25,10 @@ class CountriesApplication : Application() {
             androidLogger()
             androidContext(this@CountriesApplication)
             modules(
+                appModule,
                 networkModule,
                 viewModelsModule,
+                dataSourceModule,
                 repositoriesModule,
                 useCaseModule,
                 singletonModule

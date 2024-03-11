@@ -8,7 +8,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.countries.graphql.features.country_details_screen.presentation.DetailedCountryScreen
 import com.countries.graphql.features.home_screen.presentation.HomeScreen
-import com.countries.graphql.features.splash_screen.presentation.SplashScreen
 import com.countries.graphql.navigation.route.AppNavGraphRoutes
 
 @Composable
@@ -18,17 +17,8 @@ fun AppNavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = AppNavGraphRoutes.SplashScreen.route
+        startDestination = AppNavGraphRoutes.HomeScreen.route
     ) {
-
-        //SplashScreen
-        composable(AppNavGraphRoutes.SplashScreen.route) {
-            SplashScreen {
-                navController.navigate(route = AppNavGraphRoutes.HomeScreen.route) {
-                    popUpTo(navController.graph.id)
-                }
-            }
-        }
 
         //HomeScreen
         composable(AppNavGraphRoutes.HomeScreen.route) {
@@ -41,7 +31,7 @@ fun AppNavGraph(
             route = "${AppNavGraphRoutes.DetailedCountryScreen.route}/{code}", arguments = listOf(
                 navArgument("code") { type = NavType.StringType })
         ) {
-            DetailedCountryScreen()
+            DetailedCountryScreen(isNetworkAvailable)
         }
     }
 }
