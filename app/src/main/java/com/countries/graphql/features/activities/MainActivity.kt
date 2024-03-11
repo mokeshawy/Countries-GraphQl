@@ -30,8 +30,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+
                     val navController = rememberNavController()
-                    val isNetworkAvailable = connectivityManager.isNetworkConnected.observeAsState()
+                    val isNetworkAvailable =
+                        connectivityManager.isNetworkConnected.observeAsState(true)
                     AppNavGraph(navController, isNetworkAvailable.value)
                 }
             }

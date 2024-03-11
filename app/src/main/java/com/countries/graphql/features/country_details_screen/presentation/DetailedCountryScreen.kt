@@ -19,14 +19,14 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun DetailedCountryScreen(
-    isNetworkAvailable: Boolean?,
+    isNetworkAvailable: Boolean,
     viewModel: DetailedCountryViewModel = koinViewModel()
 ) {
 
     val context = LocalContext.current
     val state by viewModel.detailedCountryResponseState.collectAsState()
 
-    InternetConnectionView(isNetworkAvailable == true, composable = {
+    InternetConnectionView(isNetworkAvailable, composable = {
         DetailedCountryScreen(state, viewModel)
     }, action = {
         context.handleOpenConnectionSetting()

@@ -20,16 +20,15 @@ import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun HomeScreen(
-    isNetworkAvailable: Boolean?,
+    isNetworkAvailable: Boolean,
+    viewModel: HomeViewModel = koinViewModel(),
     onItemClicked: (String) -> Unit
 ) {
 
     val context = LocalContext.current
-    val viewModel: HomeViewModel = koinViewModel()
     val uiState by viewModel.countriesResponseState.collectAsState()
 
-
-    InternetConnectionView(isNetworkAvailable == true, composable = {
+    InternetConnectionView(isNetworkAvailable, composable = {
         HomeScreen(uiDataState = uiState, viewModel = viewModel, onItemClicked = onItemClicked)
     }, action = {
         context.handleOpenConnectionSetting()
@@ -49,6 +48,7 @@ private fun HomeScreen(
                 val data = viewModel.getCountriesSortedByName()
                 Countries(data) { onItemClicked(it) }
             }
+
             is UiDataState.Error -> ErrorView(uiDataState.error) {
                 viewModel.getCountries()
             }

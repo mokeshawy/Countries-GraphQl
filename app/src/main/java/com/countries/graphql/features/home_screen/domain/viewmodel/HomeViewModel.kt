@@ -38,15 +38,14 @@ class HomeViewModel : ViewModel(), KoinComponent {
         }
     }
 
-    private suspend fun List<SimpleCountry>.handleCountriesSuccessState() {
+    private suspend fun List<SimpleCountry>.handleCountriesSuccessState() =
         _countriesResponseState.emit(UiDataState.Loaded(this))
-    }
 
-    private suspend fun ErrorType.handleCountriesErrorState() {
-        _countriesResponseState.emit(
-            UiDataState.Error(errorTypeConverterHandler.convert(this))
-        )
-    }
+
+    private suspend fun ErrorType.handleCountriesErrorState() = _countriesResponseState.emit(
+        UiDataState.Error(errorTypeConverterHandler.convert(this))
+    )
+
 
     fun getCountriesSortedByName() = countriesUseCase.getCountriesSortedByName()
 }

@@ -13,7 +13,7 @@ import com.countries.graphql.navigation.route.AppNavGraphRoutes
 @Composable
 fun AppNavGraph(
     navController: NavHostController,
-    isNetworkAvailable: Boolean?
+    isNetworkAvailable: Boolean
 ) {
     NavHost(
         navController = navController,

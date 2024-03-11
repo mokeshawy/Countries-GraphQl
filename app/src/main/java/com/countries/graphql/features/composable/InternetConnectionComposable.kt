@@ -8,11 +8,11 @@ import com.countries.graphql.core.uitls.error_view.ErrorView
 
 @Composable
 fun InternetConnectionView(
-    isNetworkAvailable: Boolean?,
+    isNetworkAvailable: Boolean,
     composable: @Composable () -> Unit,
     action: () -> Unit
 ) {
-    if (isNetworkAvailable == true) {
+    if (isNetworkAvailable) {
         composable()
     } else {
         ErrorView(ErrorText.StringResource(R.string.errorNetworkUnavailable), action)
