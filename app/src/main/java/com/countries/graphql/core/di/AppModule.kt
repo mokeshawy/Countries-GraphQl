@@ -2,7 +2,7 @@ package com.countries.graphql.core.di
 
 import com.countries.graphql.core.connectivity.di.connectivityManagerModule
 import com.countries.graphql.core.error_handling.error_type_converter.di.errorTypeConverterModule
-import com.countries.graphql.core.network.ApolloNetwork
+import com.countries.graphql.core.network.provideApolloClient
 import com.countries.graphql.features.country_details_screen.di.detailedCountryDataSourceModule
 import com.countries.graphql.features.country_details_screen.di.detailedCountryRepositoryModule
 import com.countries.graphql.features.country_details_screen.di.detailedCountryUseCaseModule
@@ -19,7 +19,7 @@ val appModule = module {
 }
 
 val networkModule = module {
-    single { ApolloNetwork(get()) }
+    single { provideApolloClient(get()) }
 }
 
 val viewModelsModule = module {

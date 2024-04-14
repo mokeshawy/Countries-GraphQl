@@ -11,31 +11,30 @@ import timber.log.Timber
 import zerobranch.androidremotedebugger.logging.NetLoggingInterceptor
 import java.util.concurrent.TimeUnit
 
-class ApolloNetwork(context: Context) {
 
-    private val provideAuthInterceptor: Interceptor =
-        Interceptor { chain ->
-            val newBuilder = chain.request().newBuilder()
-            newBuilder.addHeader("Authorization", "BearerYOUR_ACCESS_TOKEN")
-            newBuilder.build().let { chain.proceed(it) }
-        }
+private val provideAuthInterceptor: Interceptor =
+    Interceptor { chain ->
+        val newBuilder = chain.request().newBuilder()
+        newBuilder.addHeader("Authorization", "BearerYOUR_ACCESS_TOKEN")
+        newBuilder.build().let { chain.proceed(it) }
+    }
 
-    private val httpLoggingInterceptor = HttpLoggingInterceptor { message ->
-        Timber.tag("OkHttp").d(message)
-    }.setLevel(HttpLoggingInterceptor.Level.BODY)
+private val httpLoggingInterceptor = HttpLoggingInterceptor { message ->
+    Timber.tag("OkHttp").d(message)
+}.setLevel(HttpLoggingInterceptor.Level.BODY)
 
 
-    private val okHttpClient = OkHttpClient.Builder()
-        .connectTimeout(2, TimeUnit.MINUTES)
-        .readTimeout(2, TimeUnit.MINUTES)
-        //.addInterceptor(provideAuthInterceptor)
-        .addInterceptor(httpLoggingInterceptor)
-        .addInterceptor(NetLoggingInterceptor())
-        .build()
+private val okHttpClient = OkHttpClient.Builder()
+    .connectTimeout(2, TimeUnit.MINUTES)
+    .readTimeout(2, TimeUnit.MINUTES)
+    //.addInterceptor(provideAuthInterceptor)
+    .addInterceptor(httpLoggingInterceptor)
+    .addInterceptor(NetLoggingInterceptor())
+    .build()
 
-    val apolloClient = ApolloClient.Builder()
-        .serverUrl(context.getString(R.string.base_url))
-        .okHttpClient(okHttpClient)
-        .build()
+fun provideApolloClient(context: Context) = ApolloClient.Builder()
+    .serverUrl(context.getString(R.string.base_url))
+    .okHttpClient(okHttpClient)
+    .build()
 
-}
+
